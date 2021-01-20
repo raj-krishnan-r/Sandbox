@@ -1,0 +1,16 @@
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'green';
+var i = 0;
+window.setInterval(()=>{
+    ctx.arc(250,250,200,(Math.PI/180)*i,(Math.PI/180)*i,true);
+    ctx.arc(500,500,200,-((Math.PI/180)*i),-((Math.PI/180)*i,true));
+
+    ctx.stroke();
+
+i=i+1;
+},200);
+</script>

@@ -1,0 +1,27 @@
+<object id = "svg" data="svg.svg" type="image/svg+xml">
+</object>
+<script>
+    window.addEventListener("load",function(){
+    var svg = document.getElementById('svg').contentDocument;
+    var  i = 0;
+    document.getElementById('box').addEventListener('mousemove',(e)=>{
+        console.log(e);
+    });    
+    window.setInterval(()=>{
+        wobble('svg_10',i);
+        wobble('svg_11',i);
+        if(i%360==0)
+        {
+            i=0;
+        }
+        i++;
+    },200);
+    function wobble(name,pivot){
+    let element = svg.getElementById(name);
+            let y = parseFloat(element.getAttributeNS(null,'ry'));
+            element.setAttributeNS(null,'ry',(y+Math.sin(pivot)*2));
+            element.setAttributeNS(null,'rx',(y+Math.cos(pivot)*2));
+}
+});
+
+</script>

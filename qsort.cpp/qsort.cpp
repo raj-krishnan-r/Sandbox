@@ -1,20 +1,27 @@
 #include<iostream>
 using namespace std;
+void swap(int* a,int* b)
+{
+    int t = *a;
+    *a=*b;
+    *b=t;
+}
 int partition(int a[],int lo,int hi)
 {
     int pivot = a[hi];
-    int i = lo;
-    for(int j=lo;j<hi;j++)
+    int i = lo-1;
+    for(int j=lo;j<=hi-1;j++)
     {
         if(a[j]<pivot)
         {
-            int temp = a[j];
-            a[j]=a[i];
-            a[i]=temp;
             i++;
+            swap(&a[i],&a[j]);
+        
+
         }
     }
-    return i;
+    swap(&a[i+1],&a[hi]);
+    return i+1;
 
 }
 void quickSort(int a[],int lo,int hi)
