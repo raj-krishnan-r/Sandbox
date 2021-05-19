@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="181840cf-c199-45d6-af92-d5a5783ce41d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/xps/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xps/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xps/build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xps/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitact" beforeDir="false" afterPath="$PROJECT_DIR$/gitact" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux-learn" beforeDir="false" afterPath="$PROJECT_DIR$/redux-learn" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qewjEbeS1OM1Yr5Dgh25MYEIO6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test_react_native/android" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="181840cf-c199-45d6-af92-d5a5783ce41d" name="Default Changelist" comment="" />
+      <created>1617453496089</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617453496089</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2696" y="297" width="424" height="484" key="FileChooserDialogImpl" timestamp="1617453515792">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2696" y="297" width="424" height="484" key="FileChooserDialogImpl/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1617453515792" />
+  </component>
+</project>
