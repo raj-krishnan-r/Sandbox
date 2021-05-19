@@ -1,6 +1,8 @@
-operators = ["+","-","/","*"]
+operators = ["+","-","/","*","^"]
 
 expression = "( ( 10 + 2 ) * 5 ) / 10 * 10 * 10"
+
+expression = "5 ^ ( ( 1 + 2 ) * 1 + 2 )"
 
 output_expression = []
 
@@ -13,8 +15,6 @@ class Stack:
         self.operator_stack.append(pushee)
         self.top = self.top + 1
         
-
-
     def pop(self):        
         self.top = self.top - 1
         return self.operator_stack.pop()
@@ -22,10 +22,8 @@ class Stack:
     def atTop(self):
         return self.operator_stack[self.top]
 
-
     def isEmpty(self):
         return self.top == -1
-
 
 def isOperator(incoming):
     if operators.count(incoming) is 0:
@@ -33,19 +31,24 @@ def isOperator(incoming):
     else:
         return True
 
+def isSymbol(incoming):
+    symbols = operators+['(',')']
+    if symbols.count(incoming) is 0:
+        return False
+    else:
+        return True
 
 def precedenceOf(incoming):
     if incoming == "+" or incoming == "-":
         return 1
     if incoming == "*" or incoming == "/":
         return 2
+    if incoming == "^":
+        return 3
     if incoming == ")" or incoming == "(":
         return 0
 
-
 stacker = Stack()
-
-
 
 tokens = expression.split()
 
@@ -68,6 +71,21 @@ while stacker.isEmpty() == False:
 
 # print(" ".join(output_expression))
 
+def pre_tokenisation(incoming):
+    resultant = []
+
+    for x in range(len(incoming)):
+        if isSymbol(incoming[x]):
+            resultant.append(incoming[x])
+        else:
+            holding = ''
+            while isSymbol(incoming[x]) is False and x < len(incoming):
+                holding = holding+incoming[x]
+                x = x+1
+            resultant.append(holding)
+    return resultant
+
+
 
 def operate(num1, num2, operation):
     if operation == '+':
@@ -78,6 +96,8 @@ def operate(num1, num2, operation):
         return num2 / num1
     if operation == '-':
         return num2 - num1
+    if operation == '^':
+        return num2**num1
     return 0
 
 def post_fix_evaluation(postfix):
