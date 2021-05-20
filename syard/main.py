@@ -1,8 +1,10 @@
 operators = ["+","-","/","*","^"]
 
-expression = "( ( 10 + 2 ) * 5 ) / 10 * 10 * 10"
+expressions = []
+expressions.append("( ( 10 + 2 ) * 5 ) / 10 * 10 * 10")
+expressions.append("5 ^ ( ( 1 + 2 ) * 1 + 2 )")
+expressions.append("5+5")
 
-expression = "5 ^ ( ( 1 + 2 ) * 1 + 2 )"
 
 output_expression = []
 
@@ -50,40 +52,45 @@ def precedenceOf(incoming):
 
 stacker = Stack()
 
-tokens = expression.split()
+def pre_tokenisation(incoming):
+    incoming = incoming.replace(' ','')
+    resultant = []
+    x=0
+    while x < len(incoming):
+        if isSymbol(incoming[x]):
+            resultant.append(incoming[x])
+            x = x + 1
+        else:
+            holding = ''
+            while (x < len(incoming) and (isSymbol(incoming[x]) is False)):
+                holding = holding + incoming[x]
+                x = x + 1
+            resultant.append(holding)
+    return resultant
 
-for token in tokens:
-    if token == '(':
-        stacker.push(token)
-    elif token == ')':
-        while (stacker.atTop() != '('):
-            output_expression.append(stacker.pop())
-        stacker.pop()
-    elif isOperator(token):
-        while (stacker.isEmpty() == False) and (precedenceOf(token) <= precedenceOf(stacker.atTop()) and (stacker.atTop() != '(')):
-            output_expression.append(stacker.pop())
-        stacker.push(token)
-    else:
-        output_expression.append(token) # Operands
-  
-while stacker.isEmpty() == False:
-    output_expression.append(stacker.pop())
+
+def infix_postfix(expression):
+    tokens = pre_tokenisation(expression)
+    for token in tokens:
+        if token == '(':
+            stacker.push(token)
+        elif token == ')':
+            while (stacker.atTop() != '('):
+                output_expression.append(stacker.pop())
+            stacker.pop()
+        elif isOperator(token):
+            while (stacker.isEmpty() == False) and (precedenceOf(token) <= precedenceOf(stacker.atTop()) and (stacker.atTop() != '(')):
+                output_expression.append(stacker.pop())
+            stacker.push(token)
+        else:
+            output_expression.append(token) # Operands
+    
+    while stacker.isEmpty() == False:
+        output_expression.append(stacker.pop())
+    return output_expression
 
 # print(" ".join(output_expression))
 
-def pre_tokenisation(incoming):
-    resultant = []
-
-    for x in range(len(incoming)):
-        if isSymbol(incoming[x]):
-            resultant.append(incoming[x])
-        else:
-            holding = ''
-            while isSymbol(incoming[x]) is False and x < len(incoming):
-                holding = holding+incoming[x]
-                x = x+1
-            resultant.append(holding)
-    return resultant
 
 
 
@@ -112,4 +119,6 @@ def post_fix_evaluation(postfix):
             intermediate_stack.push(token)
     return intermediate_stack.pop()
 
-print(expression," = ", post_fix_evaluation(output_expression))
+
+for expression in expressions:
+    print( expression," = ", post_fix_evaluation( infix_postfix(expression)))
